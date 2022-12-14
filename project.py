@@ -1,4 +1,4 @@
-# import mathplotlib as mt
+from matplotlib import pyplot as plt
 volt_a=[]
 volt_b =[]
 current_a = []
@@ -20,12 +20,12 @@ for device in range(2):
             elif device == 1:
                 volt_b.append(input("Enter Value of voltage: ")) ,
                 current_b.append(input("Enter value of current: ")) ,
-            if y > 2:
+            if y > 3 :
                 option = input("Do you want to add more values to the table: press y to add more and n to exit: ")
                 if option == 'n':
                     break
             elif option == "y":
-                y =2
+                y =3
                 continue
         if option == 'n':
             break
@@ -41,10 +41,11 @@ for x in range(y-1):
     volt+=1
 if passes == 1:
     print("Device A follow ohms law")
-elif passes == 0:
+elif passes != 0:
     print("Device A donot follow ohm law")
 
 # Check for device 2
+volt = 0
 passes_b = 0
 for x in range(y-1):
     if (y-2) == volt:
@@ -59,3 +60,25 @@ if passes_b == 1:
     print("Device B follow ohms law")
 elif passes_b == 0:
     print("Device B donot follow ohm law")
+
+graph = str(input("Enter ""Graph"" to display the graph of the devices: "))
+listy = []
+list_b_y = []
+listx = []
+list_b_x=[]
+for element in volt_a:
+    listx.append(float(element))
+for element in volt_b:
+    list_b_x.append(float(element))
+for element in current_a:
+    listy.append(float(element))
+for element in current_b:
+    list_b_y.append(float(element))
+if graph == "Graph" or "graph":
+    plt.title("OHM's LAW")
+    plt.ylabel("Current")
+    plt.xlabel("Voltage")
+    plt.title
+    plt.plot(listx,listy, color = "b", marker = '*',label='Device A')
+    plt.plot(list_b_x,list_b_y,marker = 'x',label='Device B')
+    plt.show()
