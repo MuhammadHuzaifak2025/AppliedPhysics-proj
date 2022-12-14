@@ -33,6 +33,8 @@ volt = 0
 for x in range(y-1):
     if (y-2) == volt:
         break
+    #calculates the ratio of the voltage and current and if not equal the loop breaks
+    # if all the ratio are same ohms law proved
     if float(volt_a[volt+1])/float(volt_a[volt]) == float(current_a[volt+1])/float(current_a[volt]):
         passes = 1
     else:
@@ -48,14 +50,18 @@ elif passes != 0:
 volt = 0
 passes_b = 0
 for x in range(y-1):
+
     if (y-2) == volt:
         break
+    # calculates the ratio of the voltage and current and if not equal the loop breaks
+    # if all the ratio are same ohms law proved
     if float(volt_b[volt+1])/float(volt_b[volt]) == float(current_b[volt+1])/float(current_b[volt]):
         passes_b = 1
     else:
         passes_b = 0
         break
     volt+=1
+#     End of for loop
 if passes_b == 1:
     print("Device B follow ohms law")
 elif passes_b == 0:
@@ -81,4 +87,5 @@ if graph == "Graph" or "graph":
     plt.title
     plt.plot(listx,listy, color = "b", marker = '*',label='Device A')
     plt.plot(list_b_x,list_b_y,marker = 'x',label='Device B')
+    plt.legend()
     plt.show()
